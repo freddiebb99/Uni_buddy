@@ -21,7 +21,15 @@ def user_info():
             break
         except ValueError:
             print("Please enter a valid age as a number.")
-    fav_colour = input("What is your favorite color: ").lower()
+    
+    valid_colors = ['blue', 'red', 'yellow', 'green']  # Define a list of valid colors
+    while True:
+        fav_colour = input("What is your favorite color: ").lower()
+        if fav_colour in valid_colors:
+            break
+        else:
+            print("Please enter a valid color (blue, red, yellow, or green).")
+    
     return name, age, fav_colour
 
 # This defines the welcome responce to the users name, for personalisation
