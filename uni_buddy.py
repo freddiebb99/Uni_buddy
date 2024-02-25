@@ -10,9 +10,18 @@ Please enter your credentials to get started!
 
 # This defines the user_info function, which will take inputs of name, age and favourite colour to be used later   
 def user_info():
-    name = input("What is your name : ").capitalize()
-    age = int(input("What is your age : "))
-    fav_colour = str(input("What is your favorite colour : ")).lower()
+    """Prompt user for name, age, and favorite color."""
+    name = input("What is your name: ").capitalize()
+    while True:
+        try:
+            age = int(input("What is your age: "))
+            if age < 0 or age > 120:
+                print("Please enter a valid age.")
+                continue
+            break
+        except ValueError:
+            print("Please enter a valid age as a number.")
+    fav_colour = input("What is your favorite color: ").lower()
     return name, age, fav_colour
 
 # This defines the welcome responce to the users name, for personalisation
